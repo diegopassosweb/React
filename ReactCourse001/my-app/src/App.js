@@ -5,6 +5,8 @@ import Images from "./components/images";
 import FirstComponent from "./components/FirstComponent";
 import Hooks from './components/Hooks';
 import List from './components/List';
+import RenderCond from './components/RenderCond';
+import Fragment  from './components/Fragment';
 
 function App() {
   return (
@@ -15,6 +17,11 @@ function App() {
       <Images />
       <Hooks />
       <List />
+      <RenderCond x ={8} y={10} />
+      <Fragment />
+      {/* <Container>
+        <h1>Este é filho do container!</h1>
+      </Container> */}
     </div>
   );
 }
