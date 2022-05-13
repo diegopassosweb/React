@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import Nota from './components/Nota'
+import Nota from './components/NotaAP5'
 import Resultado from './components/Resultado'
 
 export default function App() {
