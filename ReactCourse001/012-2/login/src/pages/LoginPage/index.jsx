@@ -12,6 +12,8 @@ const LoginPage = () => {
         e.preventDefault();
 
         console.log('submit', {email, password});
+
+        
         login(email,password); // integraçao com o texto / api
     };
 
