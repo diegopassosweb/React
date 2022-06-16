@@ -16,8 +16,11 @@ const AppRoutes = () => {
 
     // Para privar a pagina (HomePage) só entra se estiver logado certo (nao é 100%)
     const Private = ({children}) =>{
-        const {authenticated} = useContext(AuthContext);
+        const {authenticated, loading} = useContext(AuthContext);
 
+        if(loading) {
+            return <div className="loading">Carregando...</div>;
+        }
         if(!authenticated) {
             return <Navigate to="/login" />;
         }
