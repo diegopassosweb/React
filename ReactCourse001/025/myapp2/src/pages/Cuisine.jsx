@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { useParams } from "react-router-dom"
+import {Link} from "react-router-dom"
 
 
 function Cuisine() {
@@ -17,12 +18,20 @@ function Cuisine() {
         getCuisine(params.type)
     }, [params.type]);
 
-    return (<Grid>
+    return (
+    <Grid animate={{opacity: 1}}
+    initial={{opacity: 0}}
+    exit={{ opacity: 0}}
+    transition={{duration: 0.5}}
+    >
+
         {cuisine.map((item) => {
             return (
                 <Card key={item.id}>
+                    <Link to={'/recipe/' + item.id}>
                     <img src={item.image} alt="" />
                     <h4>{item.title}</h4>
+                    </Link>
                 </Card>
             )
         })}
