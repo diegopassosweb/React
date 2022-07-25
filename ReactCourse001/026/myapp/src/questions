@@ -1,0 +1,21 @@
+Para Validar acesso:
+
+1- Como eu sei que um usuario esta logado?
+R:Um indicativo, um hook,localstorage ou variavel
+
+2-Se estiver logado.
+R:tenho que validar usuario.
+
+3-Se sim.
+R: Liberar o acesso
+
+Para logar:
+- 1. Recebe os dados de login
+- 2. Envia uma requisiçao para o BACKEND validar estes dados no banco de dados.
+- 3. Estando correto, salva-se o TOKEN, alguma referencia ao usuario no browser.
+- 4. Se estiver errado, mostre o erro.
+
+Para Deslogar:
+- 1. Apago a referencia que existir no browser.
+- 1.1 Enviar uma requisiçao ao BACKEND avisando para destruir aquela referencia.
+- 2. Atualize a pagina.
