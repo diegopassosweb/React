@@ -5,7 +5,7 @@ import { useEffect } from "react";
 
 
 const App = () => {
-  const char = useCharacter();
+  const char = useCharacter("user");
   
   useEffect(() => {
     window.addEventListener('keydown', handleKeyDown)
