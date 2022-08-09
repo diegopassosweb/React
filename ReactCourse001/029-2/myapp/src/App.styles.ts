@@ -1,22 +1,24 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-    background-color: #17181f;
-    color: #797A81;
-    min-height: 100vh; //pega a tela inteira no componente
+
 `;
 
-export const Area = styled.div`
-    margin: auto;
-    max-width: 900px;
-    padding: 10px;
+export const Header = styled.div`
+    background-color: darkblue;
+    height: 150px;
+    text-align: center;
 `;
 
-export const Header = styled.h1`
+export const HeaderText = styled.h1`
     margin: 0;
     padding: 0;
     color: #fff;
-    text-align:center;
-    border-bottom: 1px solid #444;
-    padding-bottom: 20px;
+    padding-top: 30px;
+`;
+
+export const Body = styled.div`
+    margin: auto;
+    max-width: 980px;
+    margin-bottom: 50px;
 `;

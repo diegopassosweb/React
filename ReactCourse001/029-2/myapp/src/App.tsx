@@ -1,37 +1,36 @@
-import { Item } from "./types/Item";
-import { useState } from "react";
 import * as C from "./App.styles"
-import ListItem from "./components/ListItem";
-import AddArea from "./components/AddArea";
+import {Item} from "./types/Item"
+import { Category } from "./types/Catergory"
+import { categories } from "./data/categories"
+import { items } from "./data/items"
+import { useState, useEffect } from "react"
+import { getCurrentMonth, filterListByMonth } from "./helpers/dateFilter"
+import { TableArea } from "./components/TableArea"
 
 const App = () => {
-  const [list, setList] = useState<Item[]>([
-    {id: 1, name: 'Comprar o pao na padaria', done: false},
-    {id: 2, name: 'Comprar um bolo na padaria', done: true},
-  ])
+  const [list, setList] = useState(items);
+  const [currentMonth, setCurrentMonth] = useState(getCurrentMonth());
+  const [filteredList, setFilteredList] = useState<Item[]>([]);
 
-  const handleAddTask = (taskName: string) => {
-    let newList = [...list];
-    newList.push({
-      id: list.length + 1,
-      name: taskName,
-      done: false
-    })
-    setList(newList);
-  }
+    useEffect(() =>{
+      setFilteredList(filterListByMonth(list, currentMonth));
+    },[list, currentMonth])
 
   return (
     <C.Container>
-      <C.Area>
-        <C.Header>Lista de Tarefas</C.Header>
+      <C.Header>
+        <C.HeaderText>Sistema Financeiro</C.HeaderText>
+      </C.Header>
+      <C.Body>
 
-      {<AddArea onEnter={handleAddTask} />}
-      {list.map((item,index) =>(
-        <ListItem key={index} item={item}  />
-      ))}
-        </C.Area>
+        {/* info */}
+
+        {/* inserçao */}
+
+        <TableArea list={filteredList}/>
+      
+      </C.Body>
     </C.Container>
-  );
-};
-
+  )
+}
 export default App;
