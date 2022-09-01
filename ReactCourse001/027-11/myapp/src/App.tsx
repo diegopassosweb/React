@@ -6,7 +6,7 @@ import ListItem from "./components/ListItem";
 import AddArea from "./components/AddArea";
 
 const App = () => {
-  const [list, setList] = useState([
+  const [list, setList] = useState<Item[]>([
     {id: 1, name: "ir na padaria", done: false},
     {id: 1, name: "ir no mercado", done: false},
   ])
