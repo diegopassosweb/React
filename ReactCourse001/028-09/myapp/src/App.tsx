@@ -1,26 +1,35 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
 
-function App() {
+import React, { useEffect, useState } from "react";
+import * as C from "./App.styles";
+import { Item } from "./types/Item";
+import { items } from "./data/items";
+import { Category } from "./types/Category";
+import { categories } from "./data/categories";
+import { filterListByMonth, getCurrenthMonth } from "./helpers/dateFilter";
+import TableArea from "./components/TableArea";
+
+const App = () => {
+  const [list, setList] = useState(items);
+  const [filteredList, setFilteredList] = useState<Item[]>([]);
+  const [currenthMonth, setCurrenthMonth] = useState(getCurrenthMonth);
+
+  useEffect(() => {
+    setFilteredList(filterListByMonth(list, currenthMonth))
+  },[list,currenthMonth])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+    <C.Container>
+      <C.Header>
+        <C.HeaderText>Sistema Financeiro</C.HeaderText>
+      </C.Header>
+      <C.Body>
+
+        <TableArea list={filteredList} />
+
+
+      </C.Body>
+    </C.Container>
+  )
+};
 
 export default App;
