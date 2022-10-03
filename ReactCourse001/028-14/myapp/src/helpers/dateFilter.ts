@@ -21,3 +21,19 @@ export const filteredListByMonth = (list: Item[], date: string): Item[] => {
     return newList;
 
 }
+
+export const formatDate = (date: Date): string => {
+    let year = date.getFullYear();
+    let month = date.getMonth() + 1;
+    let day = date.getDate();
+
+    return `${formatZeroToDate(day)}/${formatZeroToDate(month)}/${year}`
+}
+
+export const formatZeroToDate = (n: number): string => n < 10 ? `0${n}` : `${n}` 
+
+export const formatCurrenthMonth = (currenthMonth: string): string => {
+let [year,month] = currenthMonth.split("-");
+let months = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"]
+return`${months[parseInt(month) -1]} de ${year}`
+}
